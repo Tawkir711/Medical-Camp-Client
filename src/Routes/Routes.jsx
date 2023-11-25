@@ -5,6 +5,7 @@ import Registration from "../Pages/Home/UpcomingCamps/Registration";
 import AvailableCamps from "../Pages/AvailableCamps/AvailableCamps";
 import ContactUs from "../Pages/ContactUs/Contact";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Login from "../Pages/Login/Login";
 
 
 export const router = createBrowserRouter([
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: 'contactUs',
         element: <ContactUs></ContactUs>
+      },
+      {
+        path: 'login',
+        element: <Login></Login>
       }
     ],
   },
