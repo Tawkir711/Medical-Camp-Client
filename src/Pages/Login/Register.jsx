@@ -1,29 +1,45 @@
-import React, { useContext } from 'react';
-import { Helmet } from 'react-helmet';
-import img from '../../assets/login/login.svg'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useContext } from "react";
+import { Helmet } from "react-helmet";
+import img from "../../assets/login/login.svg";
 import { FaGoogle } from "react-icons/fa";
-import { AuthContext } from '../../Component/Context/Context';
-import Swal from 'sweetalert2';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Component/Context/Context";
 
-const Login = () => {
+const Register = () => {
 
-  const { signIn, signInGoogle } = useContext(AuthContext);
-  const location = useLocation(); 
+  const { createUser, signInGoogle } = useContext(AuthContext);
+  const location = useLocation();
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleRegister = e => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
+    const name = form.get("name");
     const email = form.get("email");
     const password = form.get("password");
-    signIn(email, password)
+    const photo = form.get("photo");
+    console.log(name, photo, email, password);
+
+    if (
+      !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/.test(
+        password
+      )
+    ) {
+      Swal.fire({
+        icon: "error",
+        title:
+          "Minimum Six characters, at least one letter, one number and one special character",
+      });
+      return;
+    }
+    createUser(email, password)
       .then(() => {
         Swal.fire({
           icon: "success",
-          title: "Your Log in Successfully",
+          title: "Your Register Successfully",
         });
-        navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/login");
       })
       .catch((error) => {
         Swal.fire({
@@ -52,18 +68,45 @@ const Login = () => {
       });
   };
 
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <Helmet>
-        <title>Medical Camp / Login</title>
+        <title>Medical Camp / Register</title>
       </Helmet>
       <div className="hero-content flex-col lg:flex-row">
         <div className="mr-12 w-1/2">
           <img src={img} alt="" />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <h1 className="text-4xl font-bold text-center">Login your account !</h1>
-          <form onSubmit={handleLogin} className="card-body">
+          <h1 className="text-4xl font-bold text-center">
+            Register your account
+          </h1>
+          <form onSubmit={handleRegister} className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                name="name"
+                placeholder="name"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Photo URL</span>
+              </label>
+              <input
+                type="text"
+                name="photo"
+                placeholder="Photo URL"
+                className="input input-bordered"
+                required
+              />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -98,13 +141,16 @@ const Login = () => {
             </div>
           </form>
           <p className="text-center">
-            Don't have an account?
-            <Link className="text-red-600 font-semibold " to={"/register"}>
-              Register
+            Already have an account?
+            <Link className="text-red-600 font-semibold " to={"/login"}>
+              Login
             </Link>
           </p>
           <div className="text-center my-4">
-            <button onClick={handleGoogle} className="btn btn-success text-white w-3/4">
+            <button
+              onClick={handleGoogle}
+              className="btn btn-success text-white w-3/4"
+            >
               <FaGoogle className="text-xl"></FaGoogle> Google Sign In
             </button>
           </div>
@@ -114,4 +160,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

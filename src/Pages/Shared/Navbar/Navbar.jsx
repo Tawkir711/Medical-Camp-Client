@@ -1,10 +1,26 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-// import { AuthContext } from "../../../Component/Context/Context";
+import { AuthContext } from "../../../Component/Context/Context";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
 
-  // const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Your Log Out Successfully",
+        });
+      })
+      .catch();
+  }
+  const userImage =
+    user && user.photoURL
+      ? user.photoURL
+      : "https://i.postimg.cc/zB10zYpJ/userImg.jpg";
+  const userName =  user?.displayName;
 
   const NavLink = (
     <>
@@ -103,32 +119,24 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{NavLink}</ul>
       </div>
-      <div className="navbar-end">
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
+      {user && (
+        <div className="navbar-end">
+          <p className="mr-2"> {userName} </p>
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img alt="Tailwind CSS Navbar component" src={userImage} />
+                </div>            
+            </label>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <button onClick={handleLogOut}>Log Out</button>
+            </ul>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
