@@ -18,7 +18,7 @@ const UpcomingCamps = () => {
         </h4>
         <ul>
           <li>
-            <strong>Upcoming Camps Date: 2024-01-01</strong>
+            <strong>Upcoming Camps Date: 2023-12-01</strong>
           </li>
           <li>
             <strong>Location: </strong>
