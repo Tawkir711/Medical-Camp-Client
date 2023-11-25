@@ -1,0 +1,44 @@
+[
+  {
+    "_id": "643010e0f5a7e52ce1e8fa65",
+    "name": "HealthCare Harmony",
+    "date": "2023-03-17",
+    "details": "Efficient resource allocation, improved patient care, and received positive feedback for service quality.",
+    "rating": 3.5
+  },
+  {
+    "_id": "643010f9f5a7e52ce1e8fa66",
+    "name": "MediHelp Mission",
+    "date": "2023-05-01",
+    "details": "Streamlined patient care processes, minimized wait times, and garnered positive remarks for staff coordination.",
+    "rating": 4.5
+  },
+  {
+    "_id": "6430110af5a7e52ce1e8fa67",
+    "name": "Community Wellness Drive",
+    "date": "2023-06-27",
+    "details": " Gathered crucial data for strategic insights, identified prevalent health issues, and received high ratings for healthcare strategy improvements.",
+    "rating": 5
+  },
+  {
+    "_id": "64301123f5a7e52ce1e8fa68",
+    "name": "CareConnect Rally",
+    "date": "2023-11-10",
+    "details": "Enhanced volunteer coordination, excellent communication among medical staff, and optimal utilization of resources.",
+    "rating": 3.5
+  },
+  {
+    "_id": "6430113af5a7e52ce1e8fa69",
+    "name": "Wellness Outreach Initiative",
+    "date": "2023-08-20",
+    "details": "Elevated community engagement, positive responses for health awareness campaigns, and encouragement of preventive healthcare practices.",
+    "rating": 4.5
+  },
+  {
+    "_id": "6430113af5a7e52ce1e8fa69",
+    "name": "Aid & Assist Health Camp",
+    "date": "2023-12-07",
+    "details": "Efficient resource deployment, improved patient experience, and received high satisfaction ratings for medical services.",
+    "rating": 5
+  }
+]
