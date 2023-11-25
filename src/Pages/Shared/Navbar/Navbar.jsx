@@ -44,7 +44,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <img className="w-20 rounded-2xl" src="https://i.postimg.cc/xC5PtsLP/Medical-Camp.jpg" alt="" />
+        <img className="w-10 rounded-lg" src="https://i.postimg.cc/xC5PtsLP/Medical-Camp.jpg" alt="" />
         <h2 className="text-xl font-medium ml-3">Medical Camp</h2>
       </div>
       <div className="navbar-center hidden lg:flex">
