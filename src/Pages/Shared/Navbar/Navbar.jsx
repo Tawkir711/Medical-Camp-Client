@@ -18,6 +18,34 @@ const Navbar = () => {
           Home
         </Link>
       </li>
+      <li>
+        <Link
+          to={"/availAbleCamp"}
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "underline text-white btn btn-primary btn-sm"
+              : "btn btn-ghost btn-sm"
+          }
+        >
+          Available Camps
+        </Link>
+      </li>
+      <li>
+        <Link
+          to={"/contactUs"}
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "underline text-white btn btn-primary btn-sm"
+              : "btn btn-ghost btn-sm"
+          }
+        >
+          Contact Us
+        </Link>
+      </li>
     </>
   );
   return (

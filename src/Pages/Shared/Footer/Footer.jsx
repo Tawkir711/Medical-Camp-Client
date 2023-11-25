@@ -1,10 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className="footer footer-center p-10 bg-neutral text-neutral-content">
       <aside>
-        <img className='rounded-xl w-20' src="https://i.postimg.cc/xC5PtsLP/Medical-Camp.jpg" alt="footer img" />
+        <img
+          className="rounded-xl w-20"
+          src="https://i.postimg.cc/xC5PtsLP/Medical-Camp.jpg"
+          alt="footer img"
+        />
+        <nav className="my-4">
+          <div className="grid grid-flow-col gap-4">
+            <Link to={"/"}> Home</Link>
+            <Link to={"availAbleCamp"}>Available Camps</Link>
+            <Link to={"contactUs"}>
+            Contact Us
+            </Link>
+            {/* <Link to={"availAbleCamp"}>Available Camps</Link> */}
+          </div>
+        </nav>
         <p className="font-bold">
           Medical Camp Industries Ltd. <br />
           Providing reliable tech since 2023
