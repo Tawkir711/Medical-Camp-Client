@@ -1,6 +1,6 @@
 [
   {
-    "_id":"1",
+    "_id": "1",
     "name": "Health & Wellness Expo 2023",
     "image": "https://i.ibb.co/GTSwsRG/Health-Fitness.jpg",
     "fees": "Free Entry",
@@ -8,7 +8,8 @@
     "location": "City Convention Center, Main Hall",
     "services": "Health screenings, nutrition consultations, fitness workshops, mental health talks",
     "professionals": "Doctors, nutritionists, fitness trainers, mental health counselors",
-    "audience": "All ages interested in health and wellness"
+    "audience": "All ages interested in health and wellness",
+    "description": "Join us at the Health & Wellness Expo 2023, offering comprehensive health services from screenings to expert consultations in a vibrant setting."
   },
   {
     "_id": "2",
@@ -19,7 +20,8 @@
     "location": "Oak Park Community Center",
     "services": "Pediatric check-ups, vaccination clinics, child nutrition guidance",
     "professionals": "Pediatricians, nurses, child psychologists",
-    "audience": "Parents and guardians with children"
+    "audience": "Parents and guardians with children",
+    "description": "A day dedicated to children's health! Free check-ups and valuable advice from pediatric experts await you at the Pediatric Health Fair."
   },
   {
     "_id": "3",
@@ -30,7 +32,8 @@
     "location": "Maple Grove Senior Center",
     "services": "Geriatric screenings, fall prevention sessions, memory tests",
     "professionals": "Geriatric specialists, physical therapists, social workers",
-    "audience": "Elderly individuals and caregivers"
+    "audience": "Elderly individuals and caregivers",
+     "description": "Empowering seniors! Join us for a comprehensive health camp focusing on geriatric screenings and well-being sessions."
   },
   {
     "_id": "4",
@@ -41,7 +44,8 @@
     "location": "Serene Valley Resort & Spa",
     "services": "Women's health seminars, yoga and meditation sessions, spa treatments",
     "professionals": "Gynecologists, psychologists, yoga instructors",
-    "audience": "Women of all ages seeking holistic wellness"
+    "audience": "Women of all ages seeking holistic wellness",
+    "description": "A rejuvenating retreat for women! Engage in wellness seminars, yoga, and pampering spa treatments for a revitalizing experience."
   },
   {
     "_id": "5",
@@ -52,7 +56,8 @@
     "location": "Community Health Center, Auditorium",
     "services": "Diabetes screenings, dietary counseling, insulin administration training",
     "professionals": "Endocrinologists, dietitians, diabetes educators",
-    "audience": "Individuals with diabetes and their families"
+    "audience": "Individuals with diabetes and their families",
+    "description": "Educational and practical! Learn about diabetes management with expert advice and practical sessions for patients and their families."
   },
   {
     "_id": "6",
@@ -63,6 +68,7 @@
     "location": "University Auditorium",
     "services": "Workshops on stress management, therapy dog sessions, panel discussions",
     "professionals": "Psychiatrists, therapists, social workers",
-    "audience": "Individuals interested in mental health awareness"
+    "audience": "Individuals interested in mental health awareness",
+    "description": "Breaking the stigma! Engage in discussions and therapies, exploring mental health awareness and coping strategies."
   }
 ]

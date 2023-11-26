@@ -54,6 +54,20 @@ const Navbar = () => {
       </li>}
       <li>
         <Link
+          to={"/dashboard"}
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "underline text-white btn btn-primary btn-sm"
+              : "btn btn-ghost btn-sm"
+          }
+        >
+          Dashboard
+        </Link>
+      </li>
+      <li>
+        <Link
           to={"/contactUs"}
           className={({ isActive, isPending }) =>
             isPending
