@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const AddCamps = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const axiosPublic = useAxiosPublic();
   const onSubmit = async (data) => {
     console.log(data)
@@ -38,6 +38,7 @@ const AddCamps = () => {
         .then(data => {
           console.log(data);
           if (data.insertedId) {
+            reset();
             Swal.fire({
               icon: "success",
               title: "Done",
@@ -152,7 +153,7 @@ const AddCamps = () => {
               className="file-input w-full max-w-xs"
             />
           </div>
-          <button type='reset' className="btn w-full hover:bg-red-400">Add Camp</button>
+          <button className="btn w-full hover:bg-red-400">Add Camp</button>
         </form>
       </div>
     </div>

@@ -9,9 +9,9 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
-import ManagersCamps from "../Pages/Dashboard/ManagersCamps/ManagersCamps";
 import AddCamps from "../Pages/Dashboard/AddCamps/AddCamps";
 import ManagersRegister from "../Pages/Dashboard/ManagersRegister/ManagersRegister";
+import ManageCamps from "../Pages/Dashboard/ManageCamps/ManageCamps";
 
 
 export const router = createBrowserRouter([
@@ -30,7 +30,8 @@ export const router = createBrowserRouter([
       },
       {
         path: 'availAbleCamp',
-        element:<PrivateRoute><AvailableCamps></AvailableCamps></PrivateRoute>
+        element: <PrivateRoute><AvailableCamps></AvailableCamps></PrivateRoute>,
+        loader:() => fetch('http://localhost:5000/addCamp')
       },
       {
         path: 'contactUs',
@@ -52,8 +53,8 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: 'managersCamps',
-        element:<ManagersCamps></ManagersCamps>
+        path: 'manageCamps',
+        element:<ManageCamps></ManageCamps>
       },
       {
         path: 'addCamps',

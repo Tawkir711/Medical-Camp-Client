@@ -13,10 +13,10 @@ const CampDetails = ({ camp }) => {
     name,
     image,
     fees,
-    dateAndTime,
+    date,
     location,
-    services,
-    professionals,
+    service,
+    health,
     audience,
   } = camp;
   return (
@@ -31,7 +31,7 @@ const CampDetails = ({ camp }) => {
 
       <div className="card-body font-medium ">
         <p className="card-title">
-          <BsCalendar2DateFill className="mr-2 text-2xl" /> {dateAndTime}
+          <BsCalendar2DateFill className="mr-2 text-2xl" /> {date}
         </p>
         <h2 className="card-title">
           <LiaCampgroundSolid className=" text-2xl" />
@@ -45,15 +45,16 @@ const CampDetails = ({ camp }) => {
           <HiMiniCurrencyDollar className="mr-2 text-2xl" /> {fees}
         </p>
         <p className="flex">
-          <MdMedicalServices className="mr-2 text-4xl" /> {services}
+          <MdMedicalServices className="mr-2 text-4xl" /> {service}
         </p>
         <p className="flex">
-          <GrUserManager className="mr-2 text-2xl" /> {professionals}
+          <GrUserManager className="mr-2 text-2xl" /> {health}
         </p>
         <p className="flex">
           <FaUsers className="mr-2 text-2xl" /> {audience}
         </p>
       </div>
+      <button className="btn btn-primary">Join Camp</button>
     </div>
   );
 };
