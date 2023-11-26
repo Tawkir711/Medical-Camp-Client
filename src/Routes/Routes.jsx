@@ -7,6 +7,7 @@ import ContactUs from "../Pages/ContactUs/Contact";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'availAbleCamp',
-        element:<AvailableCamps></AvailableCamps>
+        element:<PrivateRoute><AvailableCamps></AvailableCamps></PrivateRoute>
       },
       {
         path: 'contactUs',
