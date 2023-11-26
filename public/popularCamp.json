@@ -1,0 +1,68 @@
+[
+  {
+    "_id":"1",
+    "name": "Health & Wellness Expo 2023",
+    "image": "https://i.ibb.co/GTSwsRG/Health-Fitness.jpg",
+    "fees": "Free Entry",
+    "dateAndTime": "March 15th, 2023 | 9 AM - 5 PM",
+    "location": "City Convention Center, Main Hall",
+    "services": "Health screenings, nutrition consultations, fitness workshops, mental health talks",
+    "professionals": "Doctors, nutritionists, fitness trainers, mental health counselors",
+    "audience": "All ages interested in health and wellness"
+  },
+  {
+    "_id": "2",
+    "name": "Pediatric Health Fair",
+    "image": "https://i.ibb.co/KWLH1KZ/istockphoto-636362028-1024x1024.jpg",
+    "fees": "Free for children under 12",
+    "dateAndTime": "June 10th, 2023 | 10 AM - 2 PM",
+    "location": "Oak Park Community Center",
+    "services": "Pediatric check-ups, vaccination clinics, child nutrition guidance",
+    "professionals": "Pediatricians, nurses, child psychologists",
+    "audience": "Parents and guardians with children"
+  },
+  {
+    "_id": "3",
+    "name": "Senior Health Awareness Camp",
+    "image": "https://i.ibb.co/zQGy6Mn/udgam-centres-img.jpg",
+    "fees": "$10 per participant",
+    "dateAndTime": "August 20th, 2023 | 11 AM - 3 PM",
+    "location": "Maple Grove Senior Center",
+    "services": "Geriatric screenings, fall prevention sessions, memory tests",
+    "professionals": "Geriatric specialists, physical therapists, social workers",
+    "audience": "Elderly individuals and caregivers"
+  },
+  {
+    "_id": "4",
+    "name": "Women's Wellness Retreat",
+    "image": "https://i.ibb.co/jL8tBcM/womens-wellness-retreat.jpg",
+    "fees": "$50 per person",
+    "dateAndTime": "October 5-7th, 2023 | Full-day event",
+    "location": "Serene Valley Resort & Spa",
+    "services": "Women's health seminars, yoga and meditation sessions, spa treatments",
+    "professionals": "Gynecologists, psychologists, yoga instructors",
+    "audience": "Women of all ages seeking holistic wellness"
+  },
+  {
+    "_id": "5",
+    "name": "Diabetes Care Workshop",
+    "image": "https://i.ibb.co/0ywTpdm/istockphoto-663403732-1024x1024.jpg",
+    "fees": "$20 per participant",
+    "dateAndTime": "November 12th, 2023 | 1 PM - 4 PM",
+    "location": "Community Health Center, Auditorium",
+    "services": "Diabetes screenings, dietary counseling, insulin administration training",
+    "professionals": "Endocrinologists, dietitians, diabetes educators",
+    "audience": "Individuals with diabetes and their families"
+  },
+  {
+    "_id": "6",
+    "name": "Mental Health Symposium",
+    "image": "https://i.ibb.co/VDjDqmQ/istockphoto-1463773444-1024x1024.jpg",
+    "fees": "Free Admission",
+    "dateAndTime": "December 8th, 2023 | 9 AM - 3 PM",
+    "location": "University Auditorium",
+    "services": "Workshops on stress management, therapy dog sessions, panel discussions",
+    "professionals": "Psychiatrists, therapists, social workers",
+    "audience": "Individuals interested in mental health awareness"
+  }
+]

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
-import img from '../../assets/login/login.svg'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Component/Context/Context';
@@ -59,10 +58,12 @@ const Login = () => {
       </Helmet>
       <div className="hero-content flex-col lg:flex-row">
         <div className="mr-12 w-1/2">
-          <img src={img} alt="" />
+          <img src="https://i.ibb.co/vhD6pvV/hr-Mdhw3fl-V.gif" alt="login gif" />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <h1 className="text-4xl font-bold text-center">Login your account !</h1>
+          <h1 className="text-4xl font-bold text-center">
+            Login your account !
+          </h1>
           <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -104,7 +105,10 @@ const Login = () => {
             </Link>
           </p>
           <div className="text-center my-4">
-            <button onClick={handleGoogle} className="btn btn-success text-white w-3/4">
+            <button
+              onClick={handleGoogle}
+              className="btn btn-success text-white w-3/4"
+            >
               <FaGoogle className="text-xl"></FaGoogle> Google Sign In
             </button>
           </div>

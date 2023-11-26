@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
-import img from "../../assets/login/login.svg";
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
@@ -76,7 +75,7 @@ const Register = () => {
       </Helmet>
       <div className="hero-content flex-col lg:flex-row">
         <div className="mr-12 w-1/2">
-          <img src={img} alt="" />
+          <img src="https://i.ibb.co/vhD6pvV/hr-Mdhw3fl-V.gif" alt="login gif" />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <h1 className="text-4xl font-bold text-center">

@@ -47,7 +47,7 @@ const UpcomingCamps = () => {
             </div>
           </Link>
         </ul>
-        <p className="text-3xl font-bold text-center">
+        <p className="md:text-3xl font-bold text-center">
           Participating in these camps not only offers crucial medical support
           but also fosters community engagement and health awareness.
         </p>
