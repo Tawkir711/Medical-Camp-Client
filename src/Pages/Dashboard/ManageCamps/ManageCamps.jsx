@@ -45,7 +45,7 @@ const ManageCamps = () => {
 
   return (
     <div>
-      <h3 className="text-3xl font-semibold text-center">Manage Camps</h3>
+      <h3 className="text-3xl font-semibold text-center text-blue-600 mb-6">--- Manage Camps ---</h3>
       <div>
         <div className="overflow-x-auto w-full">
           <table className="table">

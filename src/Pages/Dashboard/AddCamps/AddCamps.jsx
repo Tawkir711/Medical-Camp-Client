@@ -51,8 +51,8 @@ const AddCamps = () => {
     }
   };
   return (
-    <div>
-      <h3 className="text-3xl font-semibold text-center">Add Camps</h3>
+    <div className="bg-base-200">
+      <h3 className="text-3xl font-semibold text-center text-blue-600 pt-4">--- Add Camps --- </h3>
       <div className="bg-base-200 p-3">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full my-6">
@@ -155,7 +155,7 @@ const AddCamps = () => {
               className="file-input w-full max-w-xs"
             />
           </div>
-          <button className="btn w-full hover:bg-red-400">Add Camp</button>
+          <button className="btn btn-primary text-white border-0 w-full hover:bg-red-400">Add Camp</button>
         </form>
       </div>
     </div>

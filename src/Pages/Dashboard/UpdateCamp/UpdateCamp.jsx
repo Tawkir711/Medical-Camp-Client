@@ -56,8 +56,8 @@ const UpdateCamp = () => {
     }
   };
   return (
-    <div>
-      <h3 className="text-3xl font-semibold text-center">Update Camps</h3>
+    <div className='bg-base-200 pt-3'>
+      <h3 className="text-3xl font-semibold text-center text-blue-600">--- Update Camps ---</h3>
       <div className="bg-base-200 p-3">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full my-6">
@@ -160,7 +160,7 @@ const UpdateCamp = () => {
               className="file-input w-full max-w-xs"
             />
           </div>
-          <button className="btn w-full hover:bg-red-400">Update Camp</button>
+          <button className="btn w-full hover:bg-red-400 btn-primary text-white border-0">Update Camp</button>
         </form>
       </div>
     </div>

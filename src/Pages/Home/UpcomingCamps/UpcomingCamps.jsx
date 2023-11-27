@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const UpcomingCamps = () => {
   return (
     <div className="bg-base-200 px-3 py-3">
-      <h2 className="text-3xl font-bold text-center">Upcoming Camps</h2>
+      <h2 className="text-3xl font-bold text-center text-blue-600">--- Upcoming Camps ---</h2>
       <div>
         <h3 className="text-xl font-semibold text-center mt-3">
           Future Medical Outreach Programs
@@ -43,7 +43,7 @@ const UpcomingCamps = () => {
           </li>
           <Link to={"/Registration"}>
             <div className='flex justify-center'>
-              <button className="btn btn-secondary my-3">Registration</button>
+              <button className="btn btn-primary text-white my-3">Registration</button>
             </div>
           </Link>
         </ul>
