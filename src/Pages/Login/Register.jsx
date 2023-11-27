@@ -4,10 +4,13 @@ import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Component/Context/Context";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
+  const { reset } = useForm();
 
-  const { createUser, signInGoogle } = useContext(AuthContext);
+  const { createUser, updateUserProfile, signInGoogle } =
+    useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -33,12 +36,18 @@ const Register = () => {
       return;
     }
     createUser(email, password)
-      .then(() => {
-        Swal.fire({
-          icon: "success",
-          title: "Your Register Successfully",
-        });
-        navigate(location?.state ? location.state : "/login");
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        updateUserProfile(name, photo)
+          .then(() => {
+            reset();
+            Swal.fire({
+              icon: "success",
+              title: "Your Register Successfully",
+            });
+            navigate(location?.state ? location.state : "/login");
+        })
       })
       .catch((error) => {
         Swal.fire({
@@ -136,7 +145,7 @@ const Register = () => {
               </label>
             </div>
             <div className="form-control ">
-              <button className="btn btn-grad">Login</button>
+              <button className="btn btn-grad">Register</button>
             </div>
           </form>
           <p className="text-center">
