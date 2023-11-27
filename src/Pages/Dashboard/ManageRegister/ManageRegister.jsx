@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ManagersRegister = () => {
+const ManageRegister = () => {
   return (
     <div>
       content is coming soon wait bro ..
@@ -8,4 +8,4 @@ const ManagersRegister = () => {
   );
 };
 
-export default ManagersRegister;
+export default ManageRegister;

@@ -8,15 +8,15 @@ const ManageCamps = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/addCamp')
+     fetch('http://localhost:5000/addCamp')
       .then(res => res.json())
       .then(data => {
         setCamp(data)
         setLoading(false)
     })
   }, [camp, loading])
-  
-  const handleDelete = (items) => {
+
+  const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -25,28 +25,22 @@ const ManageCamps = () => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
-    }).then( async (result) => {
+    }).then((result) => {
       if (result.isConfirmed) {
-        await fetch(`http://localhost:5000/addCamp/${items._id}`, {
-          method: 'DELETE'
+        fetch(`http://localhost:5000/addCamp/${_id}`, {
+          method:"DELETE"
         })
           .then(res => res.json())
-          .then(data => {
-            console.log(data);
+          .then((data) => {
+            const remain = camp?.filter((data) => data._id !== _id)
+            setCamp(remain)
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
           })
-        if (res.data.deletedCount > 0) {
-          
-          Swal.fire({
-            title: "Deleted!",
-            text: `${items.name} has been deleted.`,
-            icon: "success",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
+        
       }
-    });
-  };
+    })
+  }
+  
 
   return (
     <div>
@@ -70,7 +64,7 @@ const ManageCamps = () => {
                 <tr key={cam._id}>
                   <td>{index + 1}</td>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex cam-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
                           <img src={cam.image} alt=".." />
@@ -87,8 +81,7 @@ const ManageCamps = () => {
                     </button>
                   </td>
                   <td>
-                    <button
-                      onClick={() => handleDelete()}
+                    <button onClick={()=>handleDelete(cam._id)}
                       className="btn btn-ghost btn-lg"
                     >
                       <FaTrashAlt className="text-blue-600"></FaTrashAlt>

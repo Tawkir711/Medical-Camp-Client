@@ -1,7 +1,7 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import useAxiosPublic from '../../../Component/hooks/useAxiosPublic';
-import Swal from 'sweetalert2';
+import React from "react";
+import { useForm } from "react-hook-form";
+import useAxiosPublic from "../../../Component/hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -9,12 +9,12 @@ const AddCamps = () => {
   const { register, handleSubmit, reset } = useForm();
   const axiosPublic = useAxiosPublic();
   const onSubmit = async (data) => {
-    console.log(data)
-    const imageFile = { image: data.image[0] }
+    console.log(data);
+    const imageFile = { image: data.image[0] };
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: {
-        'content-type': 'multipart/form-data'
-      }
+        "content-type": "multipart/form-data",
+      },
     });
     if (res.data.success) {
       const menuItem = {
@@ -25,17 +25,17 @@ const AddCamps = () => {
         health: data.health,
         location: data.location,
         service: data.service,
-        image: res.data.data.display_url
-      }
+        image: res.data.data.display_url,
+      };
       fetch("http://localhost:5000/addCamp", {
-        method: 'POST',
+        method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(menuItem)
+        body: JSON.stringify(menuItem),
       })
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           console.log(data);
           if (data.insertedId) {
             reset();
@@ -43,9 +43,10 @@ const AddCamps = () => {
               icon: "success",
               title: "Done",
               text: "Database added to  Add Camp ",
+              timer: 1500,
             });
           }
-      })
+        });
     }
   };
   return (

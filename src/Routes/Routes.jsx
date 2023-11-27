@@ -10,8 +10,8 @@ import Register from "../Pages/Login/Register";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import AddCamps from "../Pages/Dashboard/AddCamps/AddCamps";
-import ManagersRegister from "../Pages/Dashboard/ManagersRegister/ManagersRegister";
 import ManageCamps from "../Pages/Dashboard/ManageCamps/ManageCamps";
+import ManageRegister from "../Pages/Dashboard/ManageRegister/ManageRegister";
 
 
 export const router = createBrowserRouter([
@@ -31,7 +31,6 @@ export const router = createBrowserRouter([
       {
         path: 'availAbleCamp',
         element: <PrivateRoute><AvailableCamps></AvailableCamps></PrivateRoute>,
-        loader:() => fetch('http://localhost:5000/addCamp')
       },
       {
         path: 'contactUs',
@@ -61,8 +60,8 @@ export const router = createBrowserRouter([
         element:<AddCamps></AddCamps>
       },
       {
-        path: 'managersRegister',
-        element:<ManagersRegister></ManagersRegister>
+        path: 'manageRegister',
+        element:<ManageRegister></ManageRegister>
       }
     ]
   }

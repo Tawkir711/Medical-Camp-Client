@@ -18,13 +18,13 @@ const Dashboard = () => {
             <li>
               <NavLink to="/dashboard/manageCamps">
                 <FaCampground></FaCampground>
-                Managers Camps
+                Manage Camps
               </NavLink>
             </li>
             <li>
-              <NavLink to="/dashboard/managersRegister">
+              <NavLink to="/dashboard/manageRegister">
                 <FaRegShareSquare></FaRegShareSquare>
-                Managers Register
+                Manage Register
               </NavLink>
             </li>
           </>
@@ -43,9 +43,11 @@ const Dashboard = () => {
           </li>
         </ul>
       </div>
+      
       <div className="flex-1 p-8">
         <Outlet></Outlet>
       </div>
+      
     </div>
   );
 };
