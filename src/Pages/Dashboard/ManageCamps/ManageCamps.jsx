@@ -1,6 +1,7 @@
 // import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const ManageCamps = () => {
@@ -76,12 +77,15 @@ const ManageCamps = () => {
                   <td>{cam.fees}</td>
                   <td>{cam.date}</td>
                   <td>
-                    <button className="btn btn-ghost btn-lg bg-blue-500">
-                      <FaEdit className="text-white "></FaEdit>
-                    </button>
+                    <Link to={`/dashboard/updateCamp/${cam._id}`}>
+                      <button className="btn btn-ghost btn-lg bg-blue-500">
+                        <FaEdit className="text-white "></FaEdit>
+                      </button>
+                    </Link>
                   </td>
                   <td>
-                    <button onClick={()=>handleDelete(cam._id)}
+                    <button
+                      onClick={() => handleDelete(cam._id)}
                       className="btn btn-ghost btn-lg"
                     >
                       <FaTrashAlt className="text-blue-600"></FaTrashAlt>

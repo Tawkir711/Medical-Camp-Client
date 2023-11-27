@@ -1,12 +1,17 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import useAxiosPublic from "../../../Component/hooks/useAxiosPublic";
-import Swal from "sweetalert2";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { useLoaderData } from 'react-router-dom';
+import useAxiosPublic from '../../../Component/hooks/useAxiosPublic';
+import Swal from 'sweetalert2';
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
-const AddCamps = () => {
-  const { register, handleSubmit, reset } = useForm();
+
+const UpdateCamp = () => {
+  const { name, date, audience, fees, health, location, service, description, _id } =
+    useLoaderData();
+  
+  const { register, handleSubmit } = useForm();
   const axiosPublic = useAxiosPublic();
   const onSubmit = async (data) => {
     console.log(data);
@@ -17,7 +22,7 @@ const AddCamps = () => {
       },
     });
     if (res.data.success) {
-      const menuItem = {
+      const updateCam = {
         name: data.name,
         date: data.date,
         audience: data.audience,
@@ -28,22 +33,22 @@ const AddCamps = () => {
         description: data.description,
         image: res.data.data.display_url,
       };
-      fetch("http://localhost:5000/addCamp", {
-        method: "POST",
+      fetch(`http://localhost:5000/addCamp/${_id}`, {
+        method: "PATCH",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(menuItem),
+        body: JSON.stringify(updateCam),
       })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          if (data.insertedId) {
-            reset();
+          if (data.modifiedCount > 0) {
+            
             Swal.fire({
               icon: "success",
               title: "Done",
-              text: "Database added to  Add Camp ",
+              text: "Database Updated to  Update Camp ",
               timer: 1500,
             });
           }
@@ -52,14 +57,14 @@ const AddCamps = () => {
   };
   return (
     <div>
-      <h3 className="text-3xl font-semibold text-center">Add Camps</h3>
+      <h3 className="text-3xl font-semibold text-center">Update Camps</h3>
       <div className="bg-base-200 p-3">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text">Camp Name</span>
             </label>
-            <input
+            <input defaultValue={name}
               type="text"
               placeholder="Camp Name"
               {...register("name", { required: true })}
@@ -71,7 +76,7 @@ const AddCamps = () => {
               <label className="label">
                 <span className="label-text">Location</span>
               </label>
-              <input
+              <input defaultValue={location}
                 type="text"
                 placeholder="Location"
                 {...register("location", { required: true })}
@@ -82,7 +87,7 @@ const AddCamps = () => {
               <label className="label">
                 <span className="label-text">Service Provider</span>
               </label>
-              <input
+              <input defaultValue={service}
                 type="text"
                 placeholder="Service Provider"
                 {...register("service", { required: true })}
@@ -95,7 +100,7 @@ const AddCamps = () => {
               <label className="label">
                 <span className="label-text">Target Audience</span>
               </label>
-              <input
+              <input defaultValue={audience}
                 type="text"
                 placeholder="Target Audience"
                 {...register("audience", { required: true })}
@@ -106,7 +111,7 @@ const AddCamps = () => {
               <label className="label">
                 <span className="label-text">Health Professionals</span>
               </label>
-              <input
+              <input defaultValue={health}
                 type="text"
                 placeholder="Health Professionals"
                 {...register("health", { required: true })}
@@ -119,7 +124,7 @@ const AddCamps = () => {
               <label className="label">
                 <span className="label-text">Camp Fees</span>
               </label>
-              <input
+              <input defaultValue={fees}
                 type="text"
                 placeholder="Camp Fees"
                 {...register("fees", { required: true })}
@@ -130,7 +135,7 @@ const AddCamps = () => {
               <label className="label">
                 <span className="label-text">Date</span>
               </label>
-              <input
+              <input defaultValue={date}
                 type="date"
                 placeholder="Date"
                 {...register("date", { required: true })}
@@ -142,7 +147,7 @@ const AddCamps = () => {
             <label className="label">
               <span className="label-text">Description</span>
             </label>
-            <textarea
+            <textarea defaultValue={description}
               {...register("description", { required: true })}
               placeholder="Description"
               className="textarea textarea-bordered h-24"
@@ -155,11 +160,11 @@ const AddCamps = () => {
               className="file-input w-full max-w-xs"
             />
           </div>
-          <button className="btn w-full hover:bg-red-400">Add Camp</button>
+          <button className="btn w-full hover:bg-red-400">Update Camp</button>
         </form>
       </div>
     </div>
   );
 };
 
-export default AddCamps;
+export default UpdateCamp;
