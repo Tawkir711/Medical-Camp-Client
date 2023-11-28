@@ -17,13 +17,16 @@ const DetailsPage = () => {
   const onSubmit = async (data) => {
     console.log(data);
     const campItem = {
+      camp: data.camp,
       name: data.name,
       age: data.age,
       phone: data.phone,
       address: data.address,
       gender: data.gender,
       contact: data.contact,
-      requirement: data.requirement
+      requirement: data.requirement,
+      fee: data.fee,
+      dat: data.dat
     }
     fetch('http://localhost:5000/joinCamp', {
       method: "POST",
@@ -94,6 +97,32 @@ const DetailsPage = () => {
         <div className="modal-box">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex gap-2">
+              <div className="form-control md:w-full">
+                <label className="label">
+                  <span className="label-text">Camp Name</span>
+                </label>
+                <input
+                  defaultValue={name}
+                  type="text"
+                  placeholder="Camp Name"
+                  {...register("camp", { required: true })}
+                  className="input input-bordered w-full"
+                />
+              </div>
+              <div className="form-control md:w-full">
+                <label className="label">
+                  <span className="label-text">Date</span>
+                </label>
+                <input
+                  defaultValue={name}
+                  type="date"
+                  placeholder="Date"
+                  {...register("dat", { required: true })}
+                  className="input input-bordered w-full"
+                />
+              </div>
+            </div>
+            <div className="flex gap-2">
               <div className="form-control md:w-1/2">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -141,20 +170,34 @@ const DetailsPage = () => {
                 />
               </div>
             </div>
-            <div className="form-control w-full">
-              <label className="label">
-                <span className="label-text">Gender</span>
-              </label>
-              <select
-                {...register("gender")}
-                className="select select-bordered w-full "
-              >
-                <option disabled value={"default"}>
-                  Select a category
-                </option>
-                <option value={"male"}>Male</option>
-                <option value={"female"}>Female</option>
-              </select>
+            <div className="flex gap-2">
+              <div className="form-control md:w-1/2">
+                <label className="label">
+                  <span className="label-text">Gender</span>
+                </label>
+                <select
+                  {...register("gender")}
+                  className="select select-bordered w-full "
+                >
+                  <option disabled value={"default"}>
+                    Select a category
+                  </option>
+                  <option value={"male"}>Male</option>
+                  <option value={"female"}>Female</option>
+                </select>
+              </div>
+              <div className="form-control md:w-1/2">
+                <label className="label">
+                  <span className="label-text">Fees</span>
+                </label>
+                <input
+                  defaultValue={fees}
+                  type="text"
+                  placeholder="Fees"
+                  {...register("fee", { required: true })}
+                  className="input input-bordered w-full"
+                />
+              </div>
             </div>
             <div className="flex gap-2">
               <div className="form-control md:w-1/2">

@@ -3,7 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { FaCampground, FaHome, FaRegShareSquare, FaUsers,  } from 'react-icons/fa';
 
 const Dashboard = () => {
-  const isAdmin = true;
+  const isAdmin = false;
   return (
     <div className="flex">
       <div className="w-64 min-h-screen bg-blue-400">

@@ -51,9 +51,12 @@ const ManageCamps = () => {
           <table className="table">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Image</th>
+                {/* <th>#</th> */}
+                
                 <th>Camp Name</th>
+                <th>Location</th>
+                <th>Service</th>
+                <th>Audience</th>
                 <th>Fees </th>
                 <th>Date </th>
                 <th>Update</th>
@@ -63,18 +66,12 @@ const ManageCamps = () => {
             <tbody>
               {camp.map((cam, index) => (
                 <tr key={cam._id}>
-                  <td>{index + 1}</td>
-                  <td>
-                    <div className="flex cam-center gap-3">
-                      <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                          <img src={cam.image} alt=".." />
-                        </div>
-                      </div>
-                    </div>
-                  </td>
+                  {/* <td>{index + 1}</td> */}
                   <td>{cam.name}</td>
-                  <td>{cam.fees}</td>
+                  <td>{cam.location}</td>
+                  <td>{cam.service}</td>
+                  <td>{cam.audience}</td>
+                  <td>${cam.fees}</td>
                   <td>{cam.date}</td>
                   <td>
                     <Link to={`/dashboard/updateCamp/${cam._id}`}>
