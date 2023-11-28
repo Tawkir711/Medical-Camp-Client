@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { IoLocationSharp } from "react-icons/io5";
 import { LiaCampgroundSolid } from "react-icons/lia";
 import { BsCalendar2DateFill } from "react-icons/bs";
@@ -13,7 +13,9 @@ const DetailsPage = () => {
 
   return (
     <div className="card bg-base-100 shadow-xl p-5">
-      <h2 className="text-3xl font-semibold text-blue-600 text-center pb-3">--- Join Camp ---</h2>
+      <h2 className="text-3xl font-semibold text-blue-600 text-center pb-3">
+        --- Join Camp ---
+      </h2>
       <figure>
         <img
           className="w-full bg-slate-500 my-2 rounded-lg "
@@ -47,9 +49,9 @@ const DetailsPage = () => {
           <FaUsers className="mr-2 text-2xl" /> {audience}
         </p>
       </div>
-      
-        <button className="btn btn-primary text-white">Join Camp</button>
-      
+      <Link to={''}>
+        <button id='my_modal_5' className="btn btn-primary text-white w-1/2 ">Join Camp</button>
+      </Link>
     </div>
   );
 };

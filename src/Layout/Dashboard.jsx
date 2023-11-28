@@ -1,33 +1,57 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { FaCampground, FaHome, FaRegShareSquare,  } from 'react-icons/fa';
+import { FaCampground, FaHome, FaRegShareSquare, FaUsers,  } from 'react-icons/fa';
 
 const Dashboard = () => {
+  const isAdmin = true;
   return (
     <div className="flex">
       <div className="w-64 min-h-screen bg-blue-400">
-        <h2 className="text-3xl font-semibold text-center pt-5">Medical Camp</h2>
+        <h2 className="text-3xl font-semibold text-center pt-5">
+          Medical Camp
+        </h2>
         <ul className="menu p-4">
-          <>
-            <li>
-              <NavLink to="/dashboard/addCamps">
-                <FaHome></FaHome>
-                Add Camps
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/manageCamps">
-                <FaCampground></FaCampground>
-                Manage Camps
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/manageRegister">
-                <FaRegShareSquare></FaRegShareSquare>
-                Manage Register
-              </NavLink>
-            </li>
-          </>
+          {isAdmin ? (
+            <>
+              <>
+                <li>
+                  <NavLink to="/dashboard/AllUsers">
+                    <FaUsers></FaUsers>
+                    All User
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/manageRegister">
+                    <FaRegShareSquare></FaRegShareSquare>
+                    Manage Register
+                  </NavLink>
+                </li>
+              </>
+            </>
+          ) : (
+            <>
+              <>
+                <li>
+                  <NavLink to="/dashboard/addCamps">
+                    <FaHome></FaHome>
+                    Add Camps
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/manageCamps">
+                    <FaCampground></FaCampground>
+                    Manage Camps
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/manageRegister">
+                    <FaRegShareSquare></FaRegShareSquare>
+                    Manage Register
+                  </NavLink>
+                </li>
+              </>
+            </>
+          )}
           <div className="divider"></div>
           <li>
             <NavLink to="/">
@@ -43,11 +67,10 @@ const Dashboard = () => {
           </li>
         </ul>
       </div>
-      
+
       <div className="flex-1 p-8">
         <Outlet></Outlet>
       </div>
-      
     </div>
   );
 };
