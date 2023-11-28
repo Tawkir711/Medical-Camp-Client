@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { IoLocationSharp } from "react-icons/io5";
 import { LiaCampgroundSolid } from "react-icons/lia";
 import { BsCalendar2DateFill } from "react-icons/bs";
@@ -6,22 +7,13 @@ import { HiMiniCurrencyDollar } from "react-icons/hi2";
 import { MdMedicalServices } from "react-icons/md";
 import { GrUserManager } from "react-icons/gr";
 import { FaUsers } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
-const CampDetails = ({ camp }) => {
-  const {
-    _id,
-    name,
-    image,
-    fees,
-    date,
-    location,
-    service,
-    health,
-    audience,
-  } = camp;
+const DetailsPage = () => {
+  const { _id, name, image, fees, date, location, service, health, audience } =  useLoaderData();
+
   return (
     <div className="card bg-base-100 shadow-xl p-5">
+      <h2 className="text-3xl font-semibold text-blue-600 text-center pb-3">--- Join Camp ---</h2>
       <figure>
         <img
           className="w-full bg-slate-500 my-2 rounded-lg "
@@ -55,11 +47,11 @@ const CampDetails = ({ camp }) => {
           <FaUsers className="mr-2 text-2xl" /> {audience}
         </p>
       </div>
-      <Link to={`/detailsPage/${_id}`}>
-        <button className="btn btn-primary text-white w-full">Details</button>
-      </Link>
+      
+        <button className="btn btn-primary text-white">Join Camp</button>
+      
     </div>
   );
 };
 
-export default CampDetails;
+export default DetailsPage;

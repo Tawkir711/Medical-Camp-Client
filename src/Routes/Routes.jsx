@@ -13,6 +13,7 @@ import AddCamps from "../Pages/Dashboard/AddCamps/AddCamps";
 import ManageCamps from "../Pages/Dashboard/ManageCamps/ManageCamps";
 import ManageRegister from "../Pages/Dashboard/ManageRegister/ManageRegister";
 import UpdateCamp from "../Pages/Dashboard/UpdateCamp/UpdateCamp";
+import DetailsPage from "../Pages/Home/PopularCamps/DetailsPage";
 
 
 export const router = createBrowserRouter([
@@ -32,6 +33,11 @@ export const router = createBrowserRouter([
       {
         path: 'availAbleCamp',
         element: <PrivateRoute><AvailableCamps></AvailableCamps></PrivateRoute>,
+      },
+      {
+        path: 'detailsPage/:id',
+        element: <DetailsPage></DetailsPage>,
+        loader: ({params})=>fetch(`http://localhost:5000/addCamp/${params.id}`)
       },
       {
         path: 'contactUs',

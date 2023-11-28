@@ -52,7 +52,7 @@ const Navbar = () => {
           Available Camps
         </Link>
       </li>}
-      <li>
+      {user && <li>
         <Link
           to={"/dashboard"}
           className={({ isActive, isPending }) =>
@@ -65,7 +65,7 @@ const Navbar = () => {
         >
           Dashboard
         </Link>
-      </li>
+      </li>}
       <li>
         <Link
           to={"/contactUs"}

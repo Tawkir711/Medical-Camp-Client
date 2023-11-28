@@ -3,7 +3,7 @@ import React from 'react';
 const SystemOverview = () => {
   return (
     <div className="bg-base-200 py-10 my-4">
-      <h2 className="text-3xl font-bold text-center">
+      <h2 className="text-3xl font-bold text-center text-blue-600">
         --- Medical Camp System Overview ---
       </h2>
       <h3 className="text-2xl font-bold text-center p-3">Services Provided</h3>

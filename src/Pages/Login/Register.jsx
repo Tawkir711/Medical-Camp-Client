@@ -5,10 +5,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Component/Context/Context";
 import { useForm } from "react-hook-form";
+import useAxiosPublic from './../../Component/hooks/useAxiosPublic';
 
 const Register = () => {
   const { reset } = useForm();
-
+  const axiosPublic = useAxiosPublic();
   const { createUser, updateUserProfile, signInGoogle } =
     useContext(AuthContext);
   const location = useLocation();
@@ -21,7 +22,8 @@ const Register = () => {
     const email = form.get("email");
     const password = form.get("password");
     const photo = form.get("photo");
-    console.log(name, photo, email, password);
+    const role = form.get("role");
+    console.log(name, photo, email, password, role);
 
     if (
       !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/.test(
@@ -41,12 +43,24 @@ const Register = () => {
         console.log(loggedUser);
         updateUserProfile(name, photo)
           .then(() => {
-            reset();
-            Swal.fire({
-              icon: "success",
-              title: "Your Register Successfully",
-            });
-            navigate(location?.state ? location.state : "/login");
+            const userInfo = {
+              name: name,
+              email: email,
+              role: role
+            }
+            axiosPublic.post('/users', userInfo)
+              .then(res => {
+                if (res.data.insertedId) {
+                  reset();
+                  Swal.fire({
+                    icon: "success",
+                    title: "Your Register Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  navigate(location?.state ? location.state : "/login");
+              }
+            })
         })
       })
       .catch((error) => {
@@ -60,12 +74,22 @@ const Register = () => {
 
   const handleGoogle = () => {
     signInGoogle()
-      .then(() => {
-        Swal.fire({
-          icon: "success",
-          title: "Your Google Sign In Successfully",
-        });
-        navigate(location?.state ? location.state : "/");
+      .then((result) => {
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName
+        }
+        axiosPublic.post('/users', userInfo)
+          .then(res => {
+            console.log(res.data);
+            if (res.data.insertedId) {
+              Swal.fire({
+                icon: "success",
+                title: "Your Google Sign In Successfully",
+              });
+              navigate(location?.state ? location.state : "/");
+            }
+        })
       })
       .catch((error) => {
         Swal.fire({
@@ -84,7 +108,10 @@ const Register = () => {
       </Helmet>
       <div className="hero-content flex-col lg:flex-row">
         <div className="mr-12 w-1/2">
-          <img src="https://i.ibb.co/vhD6pvV/hr-Mdhw3fl-V.gif" alt="login gif" />
+          <img
+            src="https://i.ibb.co/vhD6pvV/hr-Mdhw3fl-V.gif"
+            alt="login gif"
+          />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <h1 className="text-4xl font-bold text-center">
@@ -138,11 +165,23 @@ const Register = () => {
                 className="input input-bordered"
                 required
               />
+            </div>
+            <div className="form-control">
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
+                <span className="label-text">Select Role</span>
               </label>
+              <select className="border" required name="role">
+                <option value="participants">Participants</option>
+                <option value="organizers">Organizers</option>
+                <option value="healthcare">Healthcare Professionals</option>
+              </select>
+              {/* <input
+                type="text"
+                name="role"
+                placeholder="Select Your Role"
+                className="input input-bordered"
+                required
+              /> */}
             </div>
             <div className="form-control ">
               <button className="btn btn-grad">Register</button>
