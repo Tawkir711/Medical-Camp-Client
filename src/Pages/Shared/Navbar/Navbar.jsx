@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Component/Context/Context";
 import Swal from "sweetalert2";
@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext);
+  const [disabled, setDisabled] = useState(true);
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -80,7 +81,7 @@ const Navbar = () => {
           Contact Us
         </Link>
       </li>
-      <li>
+      { user ? disabled :  <li>
         <Link
           to={"/login"}
           className={({ isActive, isPending }) =>
@@ -93,7 +94,7 @@ const Navbar = () => {
         >
           Login
         </Link>
-      </li>
+      </li>}
     </>
   );
   return (

@@ -18,7 +18,7 @@ const DetailsPage = () => {
         <img
           className="w-full bg-slate-500 my-2 rounded-lg "
           src={image}
-          alt="Watch"
+          alt=".."
         />
       </figure>
 
