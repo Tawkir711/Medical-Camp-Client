@@ -66,7 +66,7 @@ const ManageRegister = () => {
                   <td> {join.camp} </td>
                   <td>{join.dat}</td>
                   <td> {join.address} </td>
-                  <td> {join.fee} </td>
+                  <td> ${join.fee} </td>
                   <td> </td>
                   <td></td>
                   <td></td>
