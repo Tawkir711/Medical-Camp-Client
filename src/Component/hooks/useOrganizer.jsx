@@ -1,0 +1,19 @@
+import useAuth from './useAuth';
+import useAxiosSecure from './useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
+
+const useOrganizer = () => {
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const { data: isOrganizer, isPending: isAdminLoading } = useQuery({
+    queryKey: [user?.email, "isOrganizer"],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/users/organizer/${user.email}`);
+      console.log(res.data);
+      return res.data?.organizer;
+    },
+  });
+  return [isOrganizer, isAdminLoading];
+};
+
+export default useOrganizer;

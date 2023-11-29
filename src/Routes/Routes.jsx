@@ -15,7 +15,6 @@ import ManageRegister from "../Pages/Dashboard/ManageRegister/ManageRegister";
 import UpdateCamp from "../Pages/Dashboard/UpdateCamp/UpdateCamp";
 import DetailsPage from "../Pages/Home/PopularCamps/DetailsPage";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
-import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -82,7 +81,7 @@ export const router = createBrowserRouter([
       // admin
       {
         path: 'AllUsers',
-        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        element: <AllUsers></AllUsers>
       }
     ]
   }

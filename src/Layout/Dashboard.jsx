@@ -1,10 +1,15 @@
-import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
-import { FaCampground, FaHome, FaRegShareSquare, FaUsers,  } from 'react-icons/fa';
-import useAdmin from '../Component/hooks/useAdmin';
+import React from "react";
+import { NavLink, Outlet } from "react-router-dom";
+import {
+  FaCampground,
+  FaHome,
+  FaRegShareSquare,
+  FaUsers,
+} from "react-icons/fa";
+import useOrganizer from "../Component/hooks/useOrganizer";
 
 const Dashboard = () => {
-  const [isAdmin] = useAdmin();
+  const [isOrganizer] = useOrganizer();
   return (
     <div className="flex">
       <div className="w-64 min-h-screen bg-blue-400">
@@ -12,24 +17,7 @@ const Dashboard = () => {
           Medical Camp
         </h2>
         <ul className="menu p-4">
-          {isAdmin ? (
-            <>
-              <>
-                <li>
-                  <NavLink to="/dashboard/AllUsers">
-                    <FaUsers></FaUsers>
-                    All User
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/dashboard/manageRegister">
-                    <FaRegShareSquare></FaRegShareSquare>
-                    Manage Register
-                  </NavLink>
-                </li>
-              </>
-            </>
-          ) : (
+          {isOrganizer ? (
             <>
               <>
                 <li>
@@ -44,6 +32,23 @@ const Dashboard = () => {
                     Manage Camps
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink to="/dashboard/manageRegister">
+                    <FaRegShareSquare></FaRegShareSquare>
+                    Manage Register
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/AllUsers">
+                    <FaUsers></FaUsers>
+                    All User
+                  </NavLink>
+                </li>
+              </>
+            </>
+          ) : (
+            <>
+              <>
                 <li>
                   <NavLink to="/dashboard/manageRegister">
                     <FaRegShareSquare></FaRegShareSquare>

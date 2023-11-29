@@ -213,7 +213,7 @@ const DetailsPage = () => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Requirement</span>
+                  <span className="label-text">Health Requirement</span>
                 </label>
                 <input
                   type="text"

@@ -15,13 +15,13 @@ const AllUsers = () => {
     }
   })
 
-  const handleAdmin = (user) => {
-    axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
+  const handleOrganizer = (user) => {
+    axiosSecure.patch(`/users/organizer/${user._id}`).then((res) => {
       console.log(res.data);
       if (res.data.modifiedCount > 0) {
         Swal.fire({
           icon: "success",
-          title: `${user.name} is an Admin Now!`,
+          title: `${user.name} is an organizer Now!`,
           showConfirmButton: false,
           timer: 1500,
         });
@@ -79,11 +79,11 @@ const AllUsers = () => {
                 <td> {user.name} </td>
                 <td> {user.email} </td>
                 <td>
-                  {user.role === "admin" ? (
-                    "Admin"
+                  {user.role === "organizer" ? (
+                    "organizer"
                   ) : (
                     <button
-                      onClick={() => handleAdmin(user)}
+                      onClick={() => handleOrganizer(user)}
                       className="btn btn-lg bg-red-500"
                     >
                       <FaUsers className="text-white text-2xl"></FaUsers>
