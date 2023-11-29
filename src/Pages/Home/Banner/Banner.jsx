@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 
 const Banner = () => {
   return (
-    <Carousel>
+    <Carousel showThumbs={false} className='mb-8'>
       <div
         className="hero min-h-screen"
         style={{
