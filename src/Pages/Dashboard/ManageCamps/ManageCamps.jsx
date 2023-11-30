@@ -1,22 +1,24 @@
 // import { data } from 'autoprefixer';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
-import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import useAuth from './../../../Component/hooks/useAuth';
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "./../../../Component/hooks/useAuth";
 
 const ManageCamps = () => {
   const [camp, setCamp] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user } = useAuth();
   useEffect(() => {
-     fetch(`http://localhost:5000/addCamp?email=${user?.email}`)
-      .then(res => res.json())
-      .then(data => {
-        setCamp(data)
-        setLoading(false)
-    })
-  }, [camp, loading])
+    fetch(
+      `https://medical-camp-server-delta.vercel.app/addCamp?email=${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setCamp(data);
+        setLoading(false);
+      });
+  }, [camp, loading]);
 
   const handleDelete = (_id) => {
     Swal.fire({
@@ -29,31 +31,31 @@ const ManageCamps = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/addCamp/${_id}`, {
-          method:"DELETE"
+        fetch(`https://medical-camp-server-delta.vercel.app/addCamp/${_id}`, {
+          method: "DELETE",
         })
-          .then(res => res.json())
+          .then((res) => res.json())
           .then((data) => {
-            const remain = camp?.filter((data) => data._id !== _id)
-            setCamp(remain)
+            const remain = camp?.filter((data) => data._id !== _id);
+            setCamp(remain);
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
-          })
-        
+          });
       }
-    })
-  }
-  
+    });
+  };
 
   return (
     <div>
-      <h3 className="text-3xl font-semibold text-center text-blue-600 mb-6">--- Manage Camps ---</h3>
+      <h3 className="text-3xl font-semibold text-center text-blue-600 mb-6">
+        --- Manage Camps ---
+      </h3>
       <div>
         <div className="overflow-x-auto w-full">
           <table className="table">
             <thead>
               <tr>
                 {/* <th>#</th> */}
-                
+
                 <th>Camp Name</th>
                 <th>Location</th>
                 <th>Service</th>

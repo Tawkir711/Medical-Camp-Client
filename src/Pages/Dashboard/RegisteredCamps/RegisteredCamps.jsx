@@ -6,7 +6,7 @@ const RegisteredCamps = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/joinCamp")
+    fetch("https://medical-camp-server-delta.vercel.app/joinCamp")
       .then((res) => res.json())
       .then((data) => {
         setJoins(data);

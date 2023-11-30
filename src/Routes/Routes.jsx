@@ -48,7 +48,9 @@ export const router = createBrowserRouter([
         path: "detailsPage/:id",
         element: <DetailsPage></DetailsPage>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addCamp/${params.id}`),
+          fetch(
+            `https://medical-camp-server-delta.vercel.app/addCamp/${params.id}`
+          ),
       },
       {
         path: "contactUs",
@@ -89,7 +91,9 @@ export const router = createBrowserRouter([
         path: "updateCamp/:id",
         element: <UpdateCamp></UpdateCamp>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addCamp/${params.id}`),
+          fetch(
+            `https://medical-camp-server-delta.vercel.app/addCamp/${params.id}`
+          ),
       },
       {
         path: "manageRegister",
@@ -102,25 +106,25 @@ export const router = createBrowserRouter([
 
       // participants
       {
-        path: 'profileManagement',
-        element: <ProfileManagement></ProfileManagement>
+        path: "profileManagement",
+        element: <ProfileManagement></ProfileManagement>,
       },
       {
-        path: 'registerCamps',
-        element: <RegisteredCamps></RegisteredCamps>
+        path: "registerCamps",
+        element: <RegisteredCamps></RegisteredCamps>,
       },
       {
-        path: 'paymentHistory',
-        element: <PaymentHistory></PaymentHistory>
+        path: "paymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
       },
       {
-        path: 'payment',
-        element:<Payment></Payment>
+        path: "payment",
+        element: <Payment></Payment>,
       },
       {
-        path: 'feedback',
-        element: <Feedback></Feedback>
-      }
+        path: "feedback",
+        element: <Feedback></Feedback>,
+      },
     ],
   },
 ]);

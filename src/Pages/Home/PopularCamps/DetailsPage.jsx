@@ -11,13 +11,11 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useRole from "../../../Component/hooks/useRole";
 
-
-
 const DetailsPage = () => {
   const { _id, name, image, fees, date, location, service, health, audience } =
     useLoaderData();
   const { role } = useRole();
-  const { register, handleSubmit,reset } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
     console.log(data);
     const campItem = {
@@ -32,30 +30,29 @@ const DetailsPage = () => {
       fee: data.fee,
       dat: data.dat,
       paymentStatus: "NonPaid",
-      campId: _id
-    }
-    fetch('http://localhost:5000/joinCamp', {
+      campId: _id,
+    };
+    fetch("https://medical-camp-server-delta.vercel.app/joinCamp", {
       method: "POST",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
       },
-      body: JSON.stringify(campItem)
+      body: JSON.stringify(campItem),
     })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
         if (data.insertedId) {
           reset();
           Swal.fire({
             icon: "success",
             title: "Done",
-            text: "Join Camp Added Successfully"
+            text: "Join Camp Added Successfully",
           });
         }
-      })
-    
+      });
   };
-  
+
   return (
     <div className="card bg-base-100 shadow-xl p-5">
       <h2 className="text-3xl font-semibold text-blue-600 text-center pb-3">
@@ -95,14 +92,16 @@ const DetailsPage = () => {
         </p>
       </div>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
-      { role === 'participants' ?
+      {role === "participants" ? (
         <button
           className="btn btn-primary text-white"
           onClick={() => document.getElementById("my_modal_5").showModal()}
         >
           Join Camp
-        </button> : <button disabled>Join Camp</button>
-      }
+        </button>
+      ) : (
+        <button disabled>Join Camp</button>
+      )}
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <form onSubmit={handleSubmit(onSubmit)}>

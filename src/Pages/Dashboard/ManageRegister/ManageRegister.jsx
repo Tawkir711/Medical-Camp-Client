@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 // import { FaTrashAlt } from 'react-icons/fa';
 // import Swal from "sweetalert2";
 
@@ -7,7 +7,7 @@ const ManageRegister = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/joinCamp")
+    fetch("https://medical-camp-server-delta.vercel.app/joinCamp")
       .then((res) => res.json())
       .then((data) => {
         setJoins(data);
@@ -26,7 +26,7 @@ const ManageRegister = () => {
   //     confirmButtonText: "Yes, delete it!",
   //   }).then((result) => {
   //     if (result.isConfirmed) {
-  //       fetch(`http://localhost:5000/joinCamp/${_id}`, {
+  //       fetch(`https://medical-camp-server-delta.vercel.app/joinCamp/${_id}`, {
   //         method: "DELETE",
   //       })
   //         .then((res) => res.json())
