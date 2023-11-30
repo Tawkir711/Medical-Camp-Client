@@ -9,12 +9,14 @@ import { GrUserManager } from "react-icons/gr";
 import { FaUsers } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useRole from "../../../Component/hooks/useRole";
 
 
 
 const DetailsPage = () => {
   const { _id, name, image, fees, date, location, service, health, audience } =
     useLoaderData();
+  const { role } = useRole();
   const { register, handleSubmit,reset } = useForm();
   const onSubmit = async (data) => {
     console.log(data);
@@ -91,12 +93,14 @@ const DetailsPage = () => {
         </p>
       </div>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
-      <button
-        className="btn btn-primary text-white"
-        onClick={() => document.getElementById("my_modal_5").showModal()}
-      >
-        Join Camp
-      </button>
+      { role === 'participants' ?
+        <button
+          className="btn btn-primary text-white"
+          onClick={() => document.getElementById("my_modal_5").showModal()}
+        >
+          Join Camp
+        </button> : <button disabled>Join Camp</button>
+      }
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <form onSubmit={handleSubmit(onSubmit)}>
