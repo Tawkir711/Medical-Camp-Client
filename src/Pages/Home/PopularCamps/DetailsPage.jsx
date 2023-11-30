@@ -10,6 +10,8 @@ import { FaUsers } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
+
+
 const DetailsPage = () => {
   const { _id, name, image, fees, date, location, service, health, audience } =
     useLoaderData();
@@ -46,8 +48,10 @@ const DetailsPage = () => {
             text: "Join Camp Added Successfully"
           });
         }
-    })
+      })
+    
   };
+  
   return (
     <div className="card bg-base-100 shadow-xl p-5">
       <h2 className="text-3xl font-semibold text-blue-600 text-center pb-3">

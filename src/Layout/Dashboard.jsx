@@ -21,6 +21,12 @@ const Dashboard = () => {
             <>
               <>
                 <li>
+                  <NavLink to="/dashboard/organizerProfile">
+                    <FaHome></FaHome>
+                    Organizer Profile Management
+                  </NavLink>
+                </li>
+                <li>
                   <NavLink to="/dashboard/addCamps">
                     <FaHome></FaHome>
                     Add Camps
@@ -50,9 +56,27 @@ const Dashboard = () => {
             <>
               <>
                 <li>
-                  <NavLink to="/dashboard/manageRegister">
+                  <NavLink to="/dashboard/profileManagement">
                     <FaRegShareSquare></FaRegShareSquare>
-                    Manage Register
+                    Profile Management
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/registerCamps">
+                    <FaRegShareSquare></FaRegShareSquare>
+                    Registered Camps
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/paymentHistory">
+                    <FaRegShareSquare></FaRegShareSquare>
+                    Payment History
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/feedback">
+                    <FaRegShareSquare></FaRegShareSquare>
+                    Feedback and Ratings
                   </NavLink>
                 </li>
               </>

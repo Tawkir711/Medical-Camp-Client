@@ -2,10 +2,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../Component/hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import useAuth from "../../../Component/hooks/useAuth";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const AddCamps = () => {
+  const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
   const axiosPublic = useAxiosPublic();
   const onSubmit = async (data) => {
@@ -27,6 +29,7 @@ const AddCamps = () => {
         service: data.service,
         description: data.description,
         image: res.data.data.display_url,
+        userEmail: user.email
       };
       fetch("http://localhost:5000/addCamp", {
         method: "POST",

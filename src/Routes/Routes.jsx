@@ -15,12 +15,17 @@ import ManageRegister from "../Pages/Dashboard/ManageRegister/ManageRegister";
 import UpdateCamp from "../Pages/Dashboard/UpdateCamp/UpdateCamp";
 import DetailsPage from "../Pages/Home/PopularCamps/DetailsPage";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import OrganizerProfile from "../Pages/Dashboard/OrganizerProfile/OrganizerProfile";
+import ProfileManagement from "../Pages/Dashboard/ProfileManagement/ProfileManagement";
+import RegisteredCamps from "../Pages/Dashboard/RegisteredCamps/RegisteredCamps";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import Feedback from "../Pages/Dashboard/Feedback/Feedback";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -28,61 +33,89 @@ export const router = createBrowserRouter([
       },
       {
         path: "Registration",
-        element:<Registration></Registration>
+        element: <Registration></Registration>,
       },
       {
-        path: 'availAbleCamp',
-        element: <PrivateRoute><AvailableCamps></AvailableCamps></PrivateRoute>,
+        path: "availAbleCamp",
+        element: (
+          <PrivateRoute>
+            <AvailableCamps></AvailableCamps>
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'detailsPage/:id',
+        path: "detailsPage/:id",
         element: <DetailsPage></DetailsPage>,
-        loader: ({params})=>fetch(`http://localhost:5000/addCamp/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/addCamp/${params.id}`),
       },
       {
-        path: 'contactUs',
-        element: <ContactUs></ContactUs>
+        path: "contactUs",
+        element: <ContactUs></ContactUs>,
       },
       {
-        path: 'login',
-        element: <Login></Login>
+        path: "login",
+        element: <Login></Login>,
       },
       {
-        path: 'register',
-        element: <Register></Register>
-      }
+        path: "register",
+        element: <Register></Register>,
+      },
     ],
   },
   {
-    path: 'dashboard',
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: 'manageCamps',
-        element:<ManageCamps></ManageCamps>
+        path: "manageCamps",
+        element: <ManageCamps></ManageCamps>,
       },
       {
-        path: 'addCamps',
-        element:<AddCamps></AddCamps>
+        path: "organizerProfile",
+        element: <OrganizerProfile></OrganizerProfile>,
       },
       {
-        path: 'updateCamp/:id',
+        path: "addCamps",
+        element: <AddCamps></AddCamps>,
+      },
+      {
+        path: "updateCamp/:id",
         element: <UpdateCamp></UpdateCamp>,
-        loader: ({params})=> fetch(`http://localhost:5000/addCamp/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/addCamp/${params.id}`),
       },
       {
-        path: 'manageRegister',
-        element:<ManageRegister></ManageRegister>
+        path: "manageRegister",
+        element: <ManageRegister></ManageRegister>,
+      },
+      {
+        path: "AllUsers",
+        element: <AllUsers></AllUsers>,
       },
 
-
-
-      // admin
+      // participants
       {
-        path: 'AllUsers',
-        element: <AllUsers></AllUsers>
+        path: 'profileManagement',
+        element: <ProfileManagement></ProfileManagement>
+      },
+      {
+        path: 'registerCamps',
+        element: <RegisteredCamps></RegisteredCamps>
+      },
+      {
+        path: 'paymentHistory',
+        element: <PaymentHistory></PaymentHistory>
+      },
+      {
+        path: 'feedback',
+        element: <Feedback></Feedback>
       }
-    ]
-  }
+    ],
+  },
 ]);

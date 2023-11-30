@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useAuth from './../../../Component/hooks/useAuth';
 
 const ManageCamps = () => {
   const [camp, setCamp] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const { user } = useAuth();
   useEffect(() => {
-     fetch('http://localhost:5000/addCamp')
+     fetch(`http://localhost:5000/addCamp?email=${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setCamp(data)
