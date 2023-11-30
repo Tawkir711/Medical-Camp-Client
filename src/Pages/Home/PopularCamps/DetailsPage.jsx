@@ -30,7 +30,9 @@ const DetailsPage = () => {
       contact: data.contact,
       requirement: data.requirement,
       fee: data.fee,
-      dat: data.dat
+      dat: data.dat,
+      paymentStatus: "NonPaid",
+      campId: _id
     }
     fetch('http://localhost:5000/joinCamp', {
       method: "POST",

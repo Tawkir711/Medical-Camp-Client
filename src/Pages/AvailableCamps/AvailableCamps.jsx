@@ -5,7 +5,7 @@ const AvailableCamps = () => {
  const [camps, setCamps] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/addCamp")
+    fetch("http://localhost:5000/addCampAll")
       .then((res) => res.json())
       .then((data) => setCamps(data));
   }, [])

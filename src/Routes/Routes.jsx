@@ -20,6 +20,7 @@ import ProfileManagement from "../Pages/Dashboard/ProfileManagement/ProfileManag
 import RegisteredCamps from "../Pages/Dashboard/RegisteredCamps/RegisteredCamps";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import Feedback from "../Pages/Dashboard/Feedback/Feedback";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -111,6 +112,10 @@ export const router = createBrowserRouter([
       {
         path: 'paymentHistory',
         element: <PaymentHistory></PaymentHistory>
+      },
+      {
+        path: 'payment',
+        element:<Payment></Payment>
       },
       {
         path: 'feedback',

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { FaTrashAlt } from 'react-icons/fa';
-// import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const RegisteredCamps = () => {
   const [joins, setJoins] = useState([]);
@@ -14,30 +13,6 @@ const RegisteredCamps = () => {
         setLoading(false);
       });
   }, [joins, loading]);
-
-  // const handleDelete = (_id) => {
-  //   Swal.fire({
-  //     title: "Are you sure?",
-  //     text: "You won't be able to revert this!",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#3085d6",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: "Yes, delete it!",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       fetch(`http://localhost:5000/joinCamp/${_id}`, {
-  //         method: "DELETE",
-  //       })
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           const remain = joins?.filter((data) => data._id !== _id);
-  //           setJoins(remain);
-  //           Swal.fire("Deleted!", "Your file has been deleted.", "success");
-  //         });
-  //     }
-  //   });
-  // };
 
   return (
     <div>
@@ -67,7 +42,23 @@ const RegisteredCamps = () => {
                   <td>{join.dat}</td>
                   <td> {join.address} </td>
                   <td> ${join.fee} </td>
-                  <td> </td>
+                  <td>
+                    {join?.paymentStatus === "NonPaid" ? (
+                      <Link
+                        to={`/dashboard/payment?id=${join.campId},${join._id}`}
+                        className="bg-red-500  py-1 text-white px-4 rounded-md"
+                      >
+                        Pay
+                      </Link>
+                    ) : (
+                      <button
+                        disabled
+                        className="bg-[#B354A6]  py-1 text-white px-4 rounded-md"
+                      >
+                        Paid
+                      </button>
+                    )}
+                  </td>
                   <td></td>
                   <td></td>
                 </tr>
